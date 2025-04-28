@@ -1,2 +1,13 @@
+pluginManagement {
+  repositories {
+    gradlePluginPortal() // Gradle’s public plugin portal
+    google()             // Android Gradle plugins
+    mavenCentral()       // Kotlin Gradle plugin, other third-party plugins
+  }
+  plugins {
+    id 'org.jetbrains.kotlin.android' version '1.9.10'
+  }
+}
+
 rootProject.name = "NotifRepost"
 include ':app'
