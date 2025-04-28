@@ -20,12 +20,12 @@ workflows:
     publishing:
       email:
         recipients:
-          - you@example.com
+          - farhanmuhammadnajib01@gmail.com
         notify:
           success: true
           failure: true
       # contoh publishing ke Google Play internal
-      google_play:
-        credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
-        track: internal
-        submit_as_draft: true
+      # google_play:
+      #   credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
+      #   track: internal
+      #   submit_as_draft: true
