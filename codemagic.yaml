@@ -2,7 +2,7 @@ workflows:
   android-notif-repost:
     name: Android Notif Repost
     max_build_duration: 60
-    instance_type: linux-medium
+    instance_type: linux
     environment:
       # referensi keystore yang sudah di-upload di Codemagic UI
       android_signing:
