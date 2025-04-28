@@ -13,8 +13,12 @@ workflows:
       - name: Set Android SDK location
         script: |
           echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/local.properties"
+      - name: Show gradle.properties
+        script: cat gradle.properties       # pastikan muncul android.useAndroidX=true
+      - name: Clean cache
+        script: ./gradlew cleanBuildCache
       - name: Build release APK
-        script: ./gradlew assembleRelease
+        script: ./gradlew clean assembleRelease
     artifacts:
       - app/build/outputs/**/*.apk
     publishing:
