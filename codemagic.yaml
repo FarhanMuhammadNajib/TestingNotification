@@ -6,7 +6,7 @@ workflows:
     environment:
       # referensi keystore yang sudah di-upload di Codemagic UI
       android_signing:
-        - release-keystore-ref
+        - release-keystore
       vars:
         PACKAGE_NAME: "com.myJib.notifrepost"
     scripts:
