@@ -1,0 +1,31 @@
+workflows:
+  android-notif-repost:
+    name: Android Notif Repost
+    max_build_duration: 60
+    instance_type: linux-medium
+    environment:
+      # referensi keystore yang sudah di-upload di Codemagic UI
+      android_signing:
+        - release-keystore-ref
+      vars:
+        PACKAGE_NAME: "com.myJib.notifrepost"
+    scripts:
+      - name: Set Android SDK location
+        script: |
+          echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/local.properties"
+      - name: Build release APK
+        script: ./gradlew assembleRelease
+    artifacts:
+      - app/build/outputs/**/*.apk
+    publishing:
+      email:
+        recipients:
+          - you@example.com
+        notify:
+          success: true
+          failure: true
+      # contoh publishing ke Google Play internal
+      google_play:
+        credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
+        track: internal
+        submit_as_draft: true
